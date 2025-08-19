@@ -1,0 +1,236 @@
+/* Profile Page Styles */
+.profile-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tenant-info h1 {
+    color: white;
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+.tenant-info .subdomain {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 5px 0 0 0;
+    font-size: 1.1em;
+}
+
+.logout-btn {
+    background: rgba(255, 77, 77, 0.9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 77, 77, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+}
+
+.logout-btn.secondary {
+    background: rgba(108, 117, 125, 0.9);
+    margin-left: 10px;
+}
+
+.logout-btn.secondary:hover {
+    background: rgba(108, 117, 125, 1);
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+}
+
+.profile-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px;
+    min-width: 500px;
+    max-width: 600px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.profile-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.user-name {
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.user-role {
+    font-size: 1.2em;
+    color: #667eea;
+    font-weight: 500;
+    margin: 0;
+}
+
+.profile-details {
+    margin-bottom: 40px;
+}
+
+.detail-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.detail-group:last-child {
+    border-bottom: none;
+}
+
+.detail-group label {
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+}
+
+.detail-group span {
+    color: #333;
+    font-size: 1em;
+    text-align: right;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.edit-profile-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.edit-profile-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.edit-profile-btn:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.loading, .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: white;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.error {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.error h2 {
+    color: #ff4d4d;
+    margin: 0;
+}
+
+.error p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 10px;
+    }
+    
+    .profile-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .tenant-info h1 {
+        font-size: 2em;
+    }
+    
+    .profile-card {
+        min-width: auto;
+        width: 100%;
+        padding: 30px 20px;
+    }
+    
+    .detail-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .detail-group span {
+        text-align: left;
+    }
+    
+    .profile-actions {
+        flex-direction: column;
+    }
+}
