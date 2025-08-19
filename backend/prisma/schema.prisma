@@ -1,0 +1,48 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tenant {
+  id          Int      @id @default(autoincrement())
+  companyName String   @map("company_name")
+  subdomain   String   @unique
+  domain      String?
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  users User[]
+
+  @@map("tenants")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  tenantId     Int      @map("tenant_id")
+  username     String
+  passwordHash String   @map("password_hash")
+  email        String?
+  firstName    String?  @map("first_name")
+  lastName     String?  @map("last_name")
+  role         Role     @default(USER)
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  @@unique([tenantId, username])
+  @@map("users")
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  USER
+}
