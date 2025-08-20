@@ -141,7 +141,7 @@ const ProfilePage: React.FC = () => {
                         {user.email && (
                             <div className="detail-group">
                                 <label>อีเมล:</label>
-                                <span>{user.email}</span>
+                                <span>{user.email || 'ไม่ระบุ'}</span>
                             </div>
                         )}
 
@@ -152,12 +152,12 @@ const ProfilePage: React.FC = () => {
 
                         <div className="detail-group">
                             <label>บริษัท:</label>
-                            <span>{user.tenant?.companyName || 'ไม่ระบุ'}</span>
+                            <span>{tenant?.companyName || 'ไม่ระบุ'}</span>
                         </div>
 
                         <div className="detail-group">
                             <label>Subdomain:</label>
-                            <span>{user.tenant?.subdomain || 'ไม่ระบุ'}</span>
+                            <span>{tenant?.subdomain || 'ไม่ระบุ'}</span>
                         </div>
 
                         {user.tenant?.createdAt && (
